@@ -43,91 +43,92 @@ class _ProductDetailState extends State<ProductDetail> {
         ? "Loading..."
         : DateUtil.getElapsedTimeFromNow(_product.createdTime);
 
-    return (_product == null
-        ? (Text('Loading...'))
-        : (Scaffold(
-            appBar: AppBar(
-              title: Text('${_product.title}'),
-            ),
-            body: Column(
+    return (Scaffold(
+      appBar: AppBar(
+        title: Text((_product == null) ? '' : '${_product.title}'),
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(20),
+        children: <Widget>[
+          Expanded(
+            child: (_product == null)
+                ? Text('')
+                : Image.network('${_product.imageFilePath}'),
+            flex: 5,
+          ),
+          Expanded(
+            flex: 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Expanded(
-                  child: Image.network('${_product.imageFilePath}'),
-                  flex: 5,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        '${_product.title}',
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const Padding(padding: EdgeInsets.only(bottom: 2.0)),
-                      Text(
-                        '${_product.region} - $elepsedTime',
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 12.0,
-                          color: Colors.black54,
-                        ),
-                      ),
-                    ],
+                Text(
+                  (_product == null) ? '' : '${_product.title}',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Expanded(
-                    flex: 1,
-                    // alignment: Alignment.bottomRight
-                    child: Align(
-                        alignment: Alignment.topRight,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            // mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              Text(
-                                '${_product.price}원',
-                                style: const TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.black87,
-                                ),
-                              ),
-                              Text(
-                                '${_product.status}',
-                                style: const TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.black54,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ))),
-                Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            '${_product.content}${_product.content}',
-                            style: const TextStyle(
-                              color: Colors.black87,
-                            ),
-                          ),
-                          const Padding(padding: EdgeInsets.only(bottom: 2.0)),
-                        ],
-                      ),
-                    )),
+                const Padding(padding: EdgeInsets.only(bottom: 2.0)),
+                Text(
+                  (_product == null) ? '' : '${_product.region} - $elepsedTime',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 12.0,
+                    color: Colors.black54,
+                  ),
+                ),
               ],
             ),
-          )));
+          ),
+          Expanded(
+              flex: 1,
+              // alignment: Alignment.bottomRight
+              child: Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      // mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          (_product == null) ? '원' : '${_product.price}원',
+                          style: const TextStyle(
+                            fontSize: 12.0,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        Text(
+                          (_product == null) ? '' : '${_product.status}',
+                          style: const TextStyle(
+                            fontSize: 12.0,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ))),
+          Expanded(
+              flex: 1,
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      (_product == null) ? '' : '${_product.content}',
+                      style: const TextStyle(
+                        color: Colors.black87,
+                      ),
+                    ),
+                    const Padding(padding: EdgeInsets.only(bottom: 2.0)),
+                  ],
+                ),
+              )),
+        ],
+      ),
+    ));
   }
 }
