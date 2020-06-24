@@ -5,6 +5,7 @@ import 'package:sunny_alarm/screens/productdetail.dart';
 import 'package:sunny_alarm/screens/productlist.dart';
 import 'package:sunny_alarm/screens/productnoti.dart';
 import 'package:sunny_alarm/screens/userinfo.dart';
+import 'package:sunny_alarm/user/login.dart';
 
 class DangnBottomAppBarItem {
   DangnBottomAppBarItem({this.iconData, this.text});
@@ -34,30 +35,38 @@ class _DdangnFrameState extends State<DdangnFrame> {
   ];
   void _onTap(int index) {
     setState(() {
-      _currentIndex = index;
+      if (index == 2) {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ProductRegister()));
+      } else {
+        _currentIndex = index;
+      }
     });
   }
-
-  final topBar = new AppBar(
-    backgroundColor: new Color(0xfff8faf8),
-    centerTitle: true,
-    elevation: 1.0,
-    leading: new Icon(Icons.camera_alt),
-    title: SizedBox(
-        height: 80.0,
-        child: Image.asset("assets/images/ddangn-market-logo1.jpeg")),
-    actions: <Widget>[
-      Padding(
-        padding: const EdgeInsets.only(right: 12.0),
-        child: Icon(Icons.account_circle),
-      )
-    ],
-  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: topBar,
+        appBar: AppBar(
+          backgroundColor: new Color(0xfff8faf8),
+          centerTitle: true,
+          elevation: 1.0,
+          leading: new Icon(Icons.camera_alt),
+          title: SizedBox(
+              height: 80.0,
+              child: Image.asset("assets/images/ddangn-market-logo1.jpeg")),
+          actions: <Widget>[
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LogIn()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 12.0),
+                  child: Icon(Icons.account_circle),
+                ))
+          ],
+        ),
         body: _children[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,

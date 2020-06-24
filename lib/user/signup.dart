@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:sunny_alarm/user/login.dart';
 
-class ProductRegister extends StatefulWidget {
-  ProductRegister({Key key, this.title}) : super(key: key);
+class SignUp extends StatefulWidget {
+  SignUp({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _ProductRegisterState createState() => _ProductRegisterState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _ProductRegisterState extends State<ProductRegister> {
+class _SignUpState extends State<SignUp> {
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -74,8 +75,41 @@ class _ProductRegisterState extends State<ProductRegister> {
               end: Alignment.centerRight,
               colors: [Color(0xfffbb448), Color(0xfff7892b)])),
       child: Text(
-        'Register',
+        'Register Now',
         style: TextStyle(fontSize: 20, color: Colors.white),
+      ),
+    );
+  }
+
+  Widget _loginAccountLabel() {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LogIn()));
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 20),
+        padding: EdgeInsets.all(15),
+        alignment: Alignment.bottomCenter,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Already have an account ?',
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'Login',
+              style: TextStyle(
+                  color: Color(0xfff79c4f),
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -84,7 +118,7 @@ class _ProductRegisterState extends State<ProductRegister> {
     return RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-            text: '상품등록',
+            text: '땅근마켓',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w700,
@@ -92,14 +126,12 @@ class _ProductRegisterState extends State<ProductRegister> {
             )));
   }
 
-  Widget _productRegisterInfoWidget() {
+  Widget _emailPasswordWidget() {
     return Column(
       children: <Widget>[
-        _entryField("Title"),
-        _entryField("Category"),
-        _entryField("Region"),
-        _entryField("Price"),
-        _entryField("Content"),
+        _entryField("Username"),
+        _entryField("Email id"),
+        _entryField("Password", isPassword: true),
       ],
     );
   }
@@ -108,42 +140,37 @@ class _ProductRegisterState extends State<ProductRegister> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Container(
-          height: height,
-          child: Stack(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(height: height * .1),
-                      _title(),
-                      SizedBox(height: 10),
-                      _productRegisterInfoWidget()
-                    ],
-                  ),
+      body: Container(
+        height: height,
+        child: Stack(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: height * .2),
+                    _title(),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    _emailPasswordWidget(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    _submitButton(),
+                    SizedBox(height: height * .14),
+                    _loginAccountLabel(),
+                  ],
                 ),
               ),
-              Positioned(top: 40, left: 0, child: _backButton()),
-            ],
-          ),
+            ),
+            Positioned(top: 40, left: 0, child: _backButton()),
+          ],
         ),
-        bottomNavigationBar: Container(
-            child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: 55,
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child:
-                        const Text('Rigister', style: TextStyle(fontSize: 30)),
-                    color: Color(0xfffbb448),
-                    textColor: Colors.white,
-                    elevation: 5,
-                  ),
-                ))));
+      ),
+    );
   }
 }
