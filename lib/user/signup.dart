@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sunny_alarm/user/login.dart';
+import 'package:ddangn_alarm/user/login.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({Key key, this.title}) : super(key: key);

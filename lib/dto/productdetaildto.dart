@@ -4,7 +4,8 @@ class ProductDetailDto {
   final String category;
   final String content;
   final int price;
-  final int userId;
+  final String userId;
+  final String userEmail;
   final String region;
   final String imageFilePath;
   final String status;
@@ -17,6 +18,7 @@ class ProductDetailDto {
       this.content,
       this.price,
       this.userId,
+      this.userEmail,
       this.region,
       this.imageFilePath,
       this.status,
@@ -30,6 +32,7 @@ class ProductDetailDto {
         content: json['content'],
         price: json['price'],
         userId: json['userId'],
+        userEmail: json['userEmail'],
         region: json['region'],
         imageFilePath: json['imageFilePath'],
         status: json['status'],

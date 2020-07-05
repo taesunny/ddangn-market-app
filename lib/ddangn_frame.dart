@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sunny_alarm/screens/ProductRegister.dart';
-import 'package:sunny_alarm/screens/home.dart';
-import 'package:sunny_alarm/screens/productdetail.dart';
-import 'package:sunny_alarm/screens/productlist.dart';
-import 'package:sunny_alarm/screens/productnoti.dart';
-import 'package:sunny_alarm/screens/userinfo.dart';
-import 'package:sunny_alarm/user/login.dart';
+import 'package:ddangn_alarm/screens/ProductRegister.dart';
+import 'package:ddangn_alarm/screens/home.dart';
+import 'package:ddangn_alarm/screens/productlist.dart';
+import 'package:ddangn_alarm/screens/productnoti.dart';
+import 'package:ddangn_alarm/screens/userinfo.dart';
+import 'package:ddangn_alarm/utils/authutil.dart';
 
 class DangnBottomAppBarItem {
   DangnBottomAppBarItem({this.iconData, this.text});
@@ -58,8 +57,9 @@ class _DdangnFrameState extends State<DdangnFrame> {
           actions: <Widget>[
             GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LogIn()));
+                  AuthUtil.authenticate();
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => LogIn()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 12.0),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sunny_alarm/ddangn_frame.dart';
+import 'package:ddangn_alarm/ddangn_frame.dart';
 
 void main() {
   runApp(MyApp());

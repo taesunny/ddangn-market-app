@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:sunny_alarm/dto/productlistitemdto.dart';
-import 'package:sunny_alarm/screens/productdetail.dart';
-import 'package:sunny_alarm/urlconst.dart' as UrlConst;
-import 'package:sunny_alarm/utils/dateutil.dart';
+import 'package:ddangn_alarm/dto/productlistitemdto.dart';
+import 'package:ddangn_alarm/screens/productdetail.dart';
+import 'package:ddangn_alarm/urlconst.dart' as UrlConst;
+import 'package:ddangn_alarm/utils/dateutil.dart';
 
 class ProductList extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _ProductListState extends State<ProductList> {
   List<ProductListItemDto> _products = [];
 
   void _fetchPosts() async {
-    final response = await http.get('${UrlConst.API_BASE_URL}/api/v1/products');
+    final response = await http.get('${UrlConst.PRODUCT_SERVICE_API_BASE_URL}/api/v1/products');
 
     final List<ProductListItemDto> parsedResponse = jsonDecode(
             utf8.decode(response.bodyBytes))

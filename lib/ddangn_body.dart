@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sunny_alarm/ddangn_product_list.dart';
+import 'package:ddangn_alarm/ddangn_product_list.dart';
 
 class DdangnBody extends StatelessWidget {
 @override

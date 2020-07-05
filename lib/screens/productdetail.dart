@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sunny_alarm/dto/productdetaildto.dart';
+import 'package:ddangn_alarm/dto/productdetaildto.dart';
 import 'package:http/http.dart' as http;
-import 'package:sunny_alarm/urlconst.dart' as UrlConst;
-import 'package:sunny_alarm/utils/dateutil.dart';
+import 'package:ddangn_alarm/urlconst.dart' as UrlConst;
+import 'package:ddangn_alarm/utils/dateutil.dart';
 
 class ProductDetail extends StatefulWidget {
   final int productId;
@@ -21,7 +21,7 @@ class _ProductDetailState extends State<ProductDetail> {
 
   void _fetchPosts() async {
     final response = await http
-        .get('${UrlConst.API_BASE_URL}/api/v1/products/${widget.productId}');
+        .get('${UrlConst.PRODUCT_SERVICE_API_BASE_URL}/api/v1/products/${widget.productId}');
 
     final ProductDetailDto parsedResponse =
         ProductDetailDto.fromJSON(jsonDecode(utf8.decode(response.bodyBytes)));
