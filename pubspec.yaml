@@ -33,6 +33,9 @@ dependencies:
   jiffy: ^3.0.1
   openid_client: ^0.2.5
   url_launcher: ^5.4.11
+  firebase_core: ^0.2.5       # This dependency was added during initial configuration.
+  firebase_analytics: ^1.0.4  # add dependency for Google Analytics for Firebase
+  firebase_messaging: ^5.1.5
 
 dev_dependencies:
   flutter_test:

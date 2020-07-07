@@ -23,7 +23,10 @@ class AuthUtil {
 
     // create an authenticator
     var authenticator = new Authenticator(client,
-        scopes: scopes, port: 8080, urlLancher: urlLauncher, redirectUri: Uri.parse("http://localhost"));
+        scopes: scopes,
+        port: 8080,
+        urlLancher: urlLauncher,
+        redirectUri: Uri.parse("http://localhost:4200"));
 
     // starts the authentication
     var c = await authenticator.authorize();

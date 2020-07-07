@@ -1,14 +1,52 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:ddangn_alarm/ddangn_frame.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 void main() {
   runApp(MyApp());
+}
+
+final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
+void firebaseCloudMessagingListeners() {
+  if (Platform.isIOS) iOSPermission();
+
+  // _firebaseMessaging.getToken().then((token) { // TODO: delete it!!!
+  //   print('token:' + token);
+  // });
+
+  _firebaseMessaging.subscribeToTopic("all");
+
+  _firebaseMessaging.configure(
+    onMessage: (Map<String, dynamic> message) async {
+      print('on message $message');
+    },
+    onResume: (Map<String, dynamic> message) async {
+      print('on resume $message');
+    },
+    onLaunch: (Map<String, dynamic> message) async {
+      print('on launch $message');
+    },
+  );
+}
+
+void iOSPermission() {
+  _firebaseMessaging.requestNotificationPermissions(
+      IosNotificationSettings(sound: true, badge: true, alert: true));
+  _firebaseMessaging.onIosSettingsRegistered
+      .listen((IosNotificationSettings settings) {
+    print("Settings registered: $settings");
+  });
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    firebaseCloudMessagingListeners();
+
     return MaterialApp(
       title: 'Ddangn Market',
       theme: ThemeData(
