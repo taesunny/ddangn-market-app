@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "586922956485",
+    "firebase_url": "https://ddangn-market.firebaseio.com",
+    "project_id": "ddangn-market",
+    "storage_bucket": "ddangn-market.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586922956485:android:55d879043d2d7e33d0c2ac",
+        "android_client_info": {
+          "package_name": "com.example.ddangn_alarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586922956485-1url3vlnv98q8ehfosh3nt3t383ja8ui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiSGk1gZzfoQc18EkBgmKKEEl0y3MB6kA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586922956485-1url3vlnv98q8ehfosh3nt3t383ja8ui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

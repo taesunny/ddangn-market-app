@@ -1,4 +1,4 @@
-package com.example.sunny_alarm
+package com.example.ddangn_alarm
 
 import io.flutter.embedding.android.FlutterActivity
 

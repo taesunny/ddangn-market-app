@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sunny_alarm/ddangn_product_stories.dart';
+import 'package:ddangn_alarm/ddangn_product_stories.dart';
 
 class DdangnProductList extends StatelessWidget {
   @override
