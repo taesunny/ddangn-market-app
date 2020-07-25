@@ -26,17 +26,57 @@ class _DdangnFrameState extends State<DdangnFrame> {
   int _currentIndex = 0;
 
   final List<Widget> _children = [
-    Home(),
+    ProductList(),
     ProductList(),
     ProductRegister(),
     ProductNotification(),
     UserInfo()
   ];
   void _onTap(int index) {
+    if (index > 2) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          // return object of type Dialog
+          return AlertDialog(
+            title: new Text("Sorry"),
+            content: new Text("Not released feature yet."),
+            actions: <Widget>[
+              new FlatButton(
+                child: new Text("Close"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     setState(() {
       if (index == 2) {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => ProductRegister()));
+
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            // return object of type Dialog
+            return AlertDialog(
+              title: new Text("Sorry"),
+              content: new Text("Not released feature yet."),
+              actions: <Widget>[
+                new FlatButton(
+                  child: new Text("Close"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            );
+          },
+        );
       } else {
         _currentIndex = index;
       }
@@ -57,9 +97,27 @@ class _DdangnFrameState extends State<DdangnFrame> {
           actions: <Widget>[
             GestureDetector(
                 onTap: () {
-                  AuthUtil.authenticate();
+                  // AuthUtil.authenticate();
                   // Navigator.push(context,
                   //     MaterialPageRoute(builder: (context) => LogIn()));
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      // return object of type Dialog
+                      return AlertDialog(
+                        title: new Text("Sorry"),
+                        content: new Text("Not released feature yet."),
+                        actions: <Widget>[
+                          new FlatButton(
+                            child: new Text("Close"),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 12.0),
