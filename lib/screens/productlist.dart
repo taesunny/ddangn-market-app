@@ -40,7 +40,7 @@ class _ProductListState extends State<ProductList> {
       itemCount: _products.length,
       itemBuilder: (context, index) {
         return CustomProductListItemWidget(
-          image: Image.network(_products[index].imageFilePath),
+          image: Image.network('${UrlConst.PRODUCT_SERVICE_API_BASE_URL}/api/v1/products/${_products[index].id}/image'),
           title: _products[index].title,
           status: _products[index].status,
           region: _products[index].region,

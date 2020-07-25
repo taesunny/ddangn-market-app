@@ -53,7 +53,7 @@ class _ProductDetailState extends State<ProductDetail> {
           Expanded(
             child: (_product == null)
                 ? Text('')
-                : Image.network('${_product.imageFilePath}'),
+                : Image.network('${UrlConst.PRODUCT_SERVICE_API_BASE_URL}/api/v1/products/${widget.productId}/image'),
             flex: 5,
           ),
           Expanded(
